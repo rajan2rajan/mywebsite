@@ -3,12 +3,15 @@
 {% block content %}
 
     {% if request.user.is_superuser %}
-        <form action="" method="post" novalidate >
+        <form  method="POST" novalidate >
             {% csrf_token %}
+            {{form.media}}
             {% for form in form  %}
+                
                 {{form.label_tag}}{{form}}{{form.errors|striptags}} <br><br>
+                 
             {% endfor %}
-            
+           
             <button type="submit" >submit</button>
         </form>
         

@@ -3,5 +3,17 @@
 
 {% block content %}
 
+<main class="container-fluid main-container" >
+    <figure class="sticky-image">
+      <img src="images/image2.jfif" alt="rajan bhandari">
+    </figure>
+    <article class="main-container-body" data-aos="zoom in" data-aos-delay="100"  data-aos-duration="1000">
+      <h1>Rajan Bhandari</h1>
+      <p>I am backend developer with django framework and mySQL database</p>
+      <a class="btn " href="{% url 'about' %}">About me</a>
+    </article>
+  </main>
+
+
 {% endblock content %}
   

@@ -6,15 +6,43 @@
 
         
             <div>{{result.detail|safe}}</div>
-            <a href="{% url 'editabout' result.id %}" class="btn btn-primary">edit</a>
+            <a href="{% url 'editabout' result.id %}" class="btn btn-primary">edit</a> 
         
+
+
+            
     
             
-    {% else %}      
+    {% else %} 
+    
+    <main class="container-fluid vitae-container" >
+        <section class="vitae-caurosel" style="background-image: url(images/image2.jfif); height: 50vh;">
+            <article class="main-container-body" data-aos="zoom in" data-aos-delay="100"  data-aos-duration="1000">
+              <h1>About me</h1>
+              <p class="text-uppercase">home/ about me</p>
+            </article>
+      </section>
+        <section class="vitae-article mt-md-5 mb-md-5 mt-3 mb-3" id="vitae-article">
+          <div class="container-fluid ps-sm-5 pe-sm-5 ">
+              <div class="row  mt-3 mb-3">
+                  <div class="col-md-4 mt-2 mb-2 ">
+                      <figure class="vitae-article-figure rounded-2">
+                          <img src="images/image2.jfif" alt="rajan bhandari" class="img-fluid w-100 rounded-2" >
+                      </figure>
+                      <button class="btn border text-start vitae-article-figure-dwd-button hover_button d-block bg-secondary"   type="button"><a href="{% url 'contact' %}" class="w-100" style="text-decoration: none; color: inherit;">Contact me</a></button>
+                  </div>
+                  <div class="col-md-8 mt-2 mb-2">
+                      <article class="vitae-article-body  ps-md-3 pe-md-5">
+                          
+                        <p> {{result.detail|safe}}</p>
+                      </article>
+                  </div>
+              </div>
+          </div>
+        </section>
+      </main>
 
-        
-            <div>{{result.detail|safe}}</div>
-        
+     
         
     {% endif %}
     
