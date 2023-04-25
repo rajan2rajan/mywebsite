@@ -1,0 +1,23 @@
+{% extends 'header.html' %}
+
+
+{% block content %}
+    {% if request.user.is_superuser %}
+
+        
+            <div>{{result.detail|safe}}</div>
+            <a href="{% url 'editabout' result.id %}" class="btn btn-primary">edit</a>
+        
+    
+            
+    {% else %}      
+
+        
+            <div>{{result.detail|safe}}</div>
+        
+        
+    {% endif %}
+    
+
+{% endblock content %}
+    

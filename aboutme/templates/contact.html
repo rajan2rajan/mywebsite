@@ -1,0 +1,16 @@
+{% extends 'header.html' %}
+
+
+{% block content %}
+    
+<form action="" method="post" novalidate >
+    {% csrf_token %}
+    {% for form in result  %}
+        {{form.label_tag}}{{form}}{{form.errors|striptags}} <br><br>
+    {% endfor %}
+    <input type="submit">
+
+</form>
+        
+{% endblock content %}
+    

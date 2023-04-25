@@ -1,0 +1,48 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+
+    
+    {% if request.user.is_superuser %}
+    <a href="{% url 'submit_video' %}" class="btn btn-primary">add video</a>
+      <table>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+          <th>About Project</th>
+          <th>Video Link</th>
+          <th>date</th>
+          <th>operation</th>
+
+
+        </tr>
+        {% for data in data %}
+        <tr>
+
+          <td>{{data.id}}</td>
+          <td>{{data.name}}</td>
+          <td>{{data.about_project}}</td>
+          <td>{{data.video_link}}</td>
+          <td>{{data.date}}</td>         
+          <td>
+            <a href="{% url 'edit_video' data.id %}" class="btn btn-primary">edit </a>
+            <a href="{% url 'delete_video' data.id %}" class="btn btn-primary">delete</a>
+          </td>
+        
+        </tr>
+        {% endfor %}
+      </table> 
+    {% else %}
+        {% for form in data %}
+            {{form.name}} <br><br>
+            {{form.about_project}}<br><br>
+            {{form.video_link}} <br><br>
+            {{form.date}}<br><br>
+        {% endfor %}
+    {% endif %}
+        
+    
+
+
+{% endblock content %}
