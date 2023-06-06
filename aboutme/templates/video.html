@@ -1,10 +1,12 @@
 {% extends 'header.html' %}
-
+{% load static %}
+{% block title %}
+  Video 
+{% endblock title %}
 {% block content %}
 
-
     
-    {% if request.user.is_superuser %}
+ {% if request.user.is_superuser %}
     <a href="{% url 'submit_video' %}" class="btn btn-primary">add video</a>
       <table>
         <tr>
@@ -12,37 +14,87 @@
           <th>Name</th>
           <th>About Project</th>
           <th>Video Link</th>
+          <th>thumbnail</th>
           <th>date</th>
           <th>operation</th>
+          
 
 
         </tr>
         {% for data in data %}
-        <tr>
+          <tr>
+            
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.about_project}}</td>
+            <td>{{data.video_link}}</td>
+            <td>{{data.thumbnail}}</td>         
 
-          <td>{{data.id}}</td>
-          <td>{{data.name}}</td>
-          <td>{{data.about_project}}</td>
-          <td>{{data.video_link}}</td>
-          <td>{{data.date}}</td>         
-          <td>
-            <a href="{% url 'edit_video' data.id %}" class="btn btn-primary">edit </a>
-            <a href="{% url 'delete_video' data.id %}" class="btn btn-primary">delete</a>
-          </td>
-        
-        </tr>
+            <td>{{data.date}}</td>  
+
+            <td>
+              <a href="{% url 'edit_video' data.id %}" class="btn btn-primary">edit </a>
+              <a href="{% url 'delete_video' data.id %}" class="btn btn-primary">delete</a>
+            </td>
+          
+          </tr>
         {% endfor %}
       </table> 
     {% else %}
-        {% for form in data %}
-            {{form.name}} <br><br>
-            {{form.about_project}}<br><br>
-            {{form.video_link}} <br><br>
-            {{form.date}}<br><br>
-        {% endfor %}
-    {% endif %}
-        
-    
 
+      <!-- START VIDEO -->
+  <main class="container-fluid vitae-container" >
+    <section class="vitae-caurosel" style="background-image: url('https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60'); height: 50vh;">
+        <article class="main-container-body" data-aos="zoom in" data-aos-delay="100"  data-aos-duration="1000">
+          <h1 class="text-white">Videos</h1>
+          <p class="text-uppercase">home/ video</p>
+        </article>
+  </section>
+  <section class="container video-container mt-4">
+    
+    <div class="row">
+
+      {% for form in data %}
+            <div class="col-md-4 d-grid justify-content-center">
+            
+          <!-- provide video url on onclick event -->
+            <article class="card video-card" style="width: 18rem;" onclick="showModal('{{ form.video_link }}')"   data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">
+                <figure class="figure">
+                    <div class="thumbnail">
+
+                        {% if form.thumbnail %}
+                          <img src="{{form.thumbnail.url}}" class="figure-img" alt="...">
+                        {% else %}
+                          <img src="{% static 'image/default.jpg' %}" class="figure-img" alt="Default Image">
+
+                        {% endif %} 
+                 
+                    </div>
+                    <!-- video caption-->
+                    <figcaption class="figure-caption">{{ form.name }}</figcaption>
+                    <span class="play_icon"><i class="fa-solid fa-play fa-2xl" style="color: #ffffff;"></i></span>
+                </figure>
+            </article>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-dark p-0">
+                        <div class="close_btn">
+                            <button type="button " class="btn-close btn-close-white  float-end" id="close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body w-100 h-100 p-0 " id="iframeContainer">
+                            <iframe id="video_frame"  class="video_frame p-0"  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </section>
+  </main>
+<!-- END VIDEO -->
+
+{% endif %} 
 
 {% endblock content %}

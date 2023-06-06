@@ -5,7 +5,7 @@
 
     
     {% if request.user.is_superuser %}
-        <form action="" method="POST" novalidate>
+        <form action="" method="POST"  enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             {% for form in form %}
                 {{form.label_tag}}{{form}}{{form.errors|striptags}} <br><br>

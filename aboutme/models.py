@@ -12,18 +12,25 @@ class About(models.Model):
 class Videos(models.Model):
     name = models.CharField(max_length=100,null=False,unique=True)
     about_project = models.CharField(max_length=500,null=False)
-    video_link = models.URLField()
+    thumbnail = models.ImageField(upload_to='image/',null=True,blank=True)
+    
+    video_link = models.CharField(max_length=500)
     date = models.DateField(default=date.today,null=False)
 
 
 
-# class detail(models.Model):
-#     Name = 
-#     address = 
-#     phone_number = 
-#     email = 
-#     career_objective = 
-#     maritial_stauts = 
+# class Details(models.Model):
+
+#     address = models.CharField(max_length=100)
+
+#     email = models.EmailField(max_length=100)
+
+#     career_objective = models.CharField(max_length=100)
+#     maritial_stauts = models.CharField(max_length=10)
+#     facebook = models.CharField(max_length=10)
+#     twitter = models.CharField(max_length=10)
+#     linkdin = models.CharField(max_length=10)
+#     education_bachlore = models.CharField(max_length=10)
 
 
 

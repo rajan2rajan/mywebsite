@@ -249,3 +249,49 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+/* contact me */
+.required-star {
+  color: red;
+  margin-left: 2px;
+}
+
+.form-text,.contact_form > div label, .contact_form > div input,  .contact_form > div textarea   {
+  font-size: 16px;
+  font-family: var(--font-lato-family);
+  font-weight: 400;
+  /* color: rgb(102,102,102);  */
+  color: #000;
+}
+
+.contact_form > div label {
+  font-weight: 700; 
+}
+.contact_form > div input  {
+  border-bottom: 3px solid rgba(199, 174, 174, 0.515);
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+.form_contactme > input {
+  border: 1px solid red;
+}
+
+.form-text > a {
+  text-decoration: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.contact_button {
+  width: fit-content; 
+  margin: 10px auto;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: var(--raleway-family);
+  background-color: var(--font-color) !important;
+  color: #fff;
+  padding: 10px 20px;
+  letter-spacing: 0.15rem;
+}
+
+

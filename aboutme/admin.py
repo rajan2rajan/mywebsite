@@ -10,4 +10,4 @@ class ModelAdmin(admin.ModelAdmin):
 
 @admin.register(Videos)
 class ModelAdmin(admin.ModelAdmin):
-    list_display = ('name','about_project','video_link','date')
+    list_display = ('name','about_project','video_link','thumbnail','date')

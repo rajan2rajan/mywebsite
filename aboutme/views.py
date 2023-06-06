@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
-from django.http import HttpResponse
+from django.http import HttpResponse,FileResponse
 from .forms import AboutForm,ContactForm,VideoForm
 from .models import About,Videos
 from django.core.mail import send_mail
@@ -41,18 +41,18 @@ def editabout(request,pk):
 # this is to contact me message from one account to another 
 def contact(request):
     if request.method=="POST":
-        data = ContactForm(request.POST)
-        if data.is_valid():
-            name = data.cleaned_data['Name']
-            from_email = data.cleaned_data['Email']        
-            subject = data.cleaned_data['Subject']
-            message = data.cleaned_data['Message']
+            form_data = request.POST
+            name = form_data['Name']
+            from_email = form_data['Email']        
+            subject = form_data['Subject']
+            message =form_data ['Message']
             data = f'name= {name},  email={from_email} ,and message={message} '
-            send_mail( subject, data, 'testingemailmsg@gmail.com', ['rajanbhandari939@gmail.com'])
+            send_mail( subject, data, 'testingchitwan@gmail.com', ['rajanbhandari939@gmail.com'],fail_silently=False)
             messages.info(request,'message send sucessfull ')
+            return redirect('contact')
     else:
-        data = ContactForm()
-    return render(request,'contact.html',{'result':data})
+       
+        return render(request,'contact.html')
 
 
 
@@ -62,9 +62,8 @@ def project_video(request):
 
 def submit_video(request):    
     if request.method=="POST":        
-        data = VideoForm(request.POST)
+        data = VideoForm(request.POST, request.FILES)
         if data.is_valid():
-            print('hellow')
             data.save()
             return redirect('/video')
     else:
@@ -75,7 +74,7 @@ def submit_video(request):
 def edit_video(request,pk):
     data = Videos.objects.get(id=pk)
     if request.method=="POST":
-        result = VideoForm(request.POST,instance=data)
+        result = VideoForm(request.POST,request.FILES,instance=data)
         if result.is_valid():
             print('hello')
             result.save()
@@ -96,15 +95,14 @@ def cv(request):
 
 
 from .pdf import html2pdf  
+import io
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+
 
 def generatepdf(request):
     pdf = html2pdf('pdf.html')
     return HttpResponse(pdf,content_type='application/pdf')
-
-
-
-
-
-
 
 

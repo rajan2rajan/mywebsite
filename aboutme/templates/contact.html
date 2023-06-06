@@ -1,16 +1,49 @@
 {% extends 'header.html' %}
+{% load static %}
 
+{% block title %}
+     Contact us 
+{% endblock title %}
 
 {% block content %}
-    
-<form action="" method="post" novalidate >
-    {% csrf_token %}
-    {% for form in result  %}
-        {{form.label_tag}}{{form}}{{form.errors|striptags}} <br><br>
-    {% endfor %}
-    <input type="submit">
 
-</form>
+
+    <main class="container-fluid vitae-container" >
+        <div class="col-md-8 mt-2 mb-2 d-flex justify-content-center w-100" >
+        <form class="contact_form ps-md-3 pe-md-5 0 " method="POST" style="width: 500px;" novalidate>
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name <span class="required-star">*</span></label>
+            <input type="text" required class="form-control rounded-0" name= 'Name' id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address <span class="required-star">*</span></label>
+            <input type="email" class="form-control rounded-0" name= 'Email' required id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Subject <span class="required-star">*</span></label>
+                <input type="text" required class="form-control rounded-0" name= 'Subject' id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            <div class="mb-3">
+            <label for="exampleInputMessage" class="form-label">Comments/Questions <span class="required-star">*</span></label>
+            <textarea class="form-control rounded-0" name= 'Message' placeholder="Leave a comment here" id="exampleInputMessage" style="height: 100px" required></textarea>
+            </div>
+            <button type="submit" class="btn fw-bold contact_button ">Send Message</button>
+            <hr/>
+            <!-- ADD FACEBOOK AND TWITTER LINK -->
+            <p class="form-text">
+                You can message me direcly via 
+                <a href="" class="" title="follow this link to visit my Facebook account" target="_blank" rel="noopener noreferrer">Facebook</a> Or 
+                <a href="" class="" title="follow this link to visit my Twitter account" target="_blank" rel="noopener noreferrer">Twitter</a>
+
+            </p>
+        </form>
+    </div>
+    </main>
+
+    
+
         
 {% endblock content %}
     

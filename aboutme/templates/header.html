@@ -5,36 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="title" content="Swarnim Waglé, PhD">  
-    <meta name="description" content="Economist and Former Vice-Chair of the National Planning Commission, Nepal.">
-    <meta name="keywords" content="Swarnim Waglé, PhD | vice-chairman, National Planning commission | National Planning commission, socio-cultural foundations, ecological challenges | Economist | World Bank International | World Bank Nepal,  Human Development Report, Post Disaster needs assessments, Nepal Multidimensional Poverty Index, Analyst, DEMOGRAPHIC CHANGES OF NEPAL: Trends and Policy Implications">
+    <meta name="title" content="Rajan Bhandari">  
+    <meta name="description" content="">
+    <meta name="keywords" content="Rajan Bhandari | enthusiastic in technology | fresher in web Devlopment">
     
-    <meta name="tweetmeme-title" content="Swarnim Waglé">
+    <meta name="tweetmeme-title" content="Rajan Bhandari">
     <!-- Twitter Card data -->
-    <meta name="twitter:card" content="Swarnim Waglé">
-    <meta name="twitter:title" content="Swarnim Waglé">
-    <meta name="twitter:description" content="Economist and Former Vice-Chair of the National Planning Commission, Nepal.">
-    <meta name="twitter:image" content="https://swarnimwagle.com.np/source/images/swarnim-wagle-fb-image.jpg"> 
+    <meta name="twitter:card" content="Rajan Bhandari">
+    <meta name="twitter:title" content="Rajan Bhandari">
     
     
     <!-- Open Graph data -->
-    <meta property="og:title" content="Swarnim Waglé">
+    <meta property="og:title" content="Rajan Bhandari">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:url" content="http://swarnimwagle.com.np.com/">
-    <meta property="og:image" content="https://swarnimwagle.com.np/source/images/swarnim-wagle-fb-image.jpg">
-    <meta property="og:description" content="Economist and Former Vice-Chair of the National Planning Commission, Nepal.">
-    <meta property="og:site_name" content="Swarnim Waglé">
-    
-     
+    <meta property="og:url" content="http://rajanbhandari.com.np.com/">
+    <meta property="og:site_name" content="Rajan Bhandari">    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="index, follow">
-    
-    
-
-
-
 
     <!-- bootstrap css cdn -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -46,7 +35,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 
-    <title>Home</title>
+    <title>
+    {% block title %}
+      
+    {% endblock title %}
+    </title>
+      
     
     {% load static %}
     <link rel="stylesheet" href="{% static 'cvstyle.css'%}">
@@ -125,17 +119,10 @@
     </div>
      <!-- contact me -->
      <div class="contact-me">
-      <button class="btn rounded-1 btn-sm contact_me" href="{% url 'contact' %}">Contact me</button>
+      <a href="{% url 'contact'%}"><button class="btn rounded-1 btn-sm contact_me"> Contact us</button></a>
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
 
 
 
@@ -158,13 +145,13 @@
         <div class="right-column">
           <ul class="socia-media-group">
             <li class="social-item">
-              <a href="" class="fa-brands fa-github fa-xl" style="color:rgb(128,192,192)" title="github" target="_blank" rel="noopener"></a>
+              <a href="https://github.com/rajan2rajan" class="fa-brands fa-github fa-xl" style="color:rgb(128,192,192)" title="github" target="_blank" rel="noopener"></a>
             </li>
             <li class="social-item">
-              <a href="" class="fa-brands fa-facebook-f fa-xl" style="color:rgb(128,192,192)" title="twitter" target="_blank" rel="noopener"></a>
+              <a href="https://www.facebook.com/rajan.bhandari.520562/" class="fa-brands fa-facebook-f fa-xl" style="color:rgb(128,192,192)" title="twitter" target="_blank" rel="noopener"></a>
             </li>
             <li class="social-item">
-              <a href="" class="fa-brands fa-twitter fa-xl" style="color:rgb(128,192,192)" title="twitter" target="_blank" rel="noopener"></a>
+              <a href="https://twitter.com/RajanBh39882525" class="fa-brands fa-twitter fa-xl" style="color:rgb(128,192,192)" title="twitter" target="_blank" rel="noopener"></a>
             </li>
           </ul>
         </div>
@@ -189,6 +176,7 @@
           console.error( error );
       } );
     </script>
+    <script src="{% static 'script.js' %}">></script>
 
   </body>
 </html>
