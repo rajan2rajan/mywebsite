@@ -6,9 +6,25 @@
 {% endblock title %}
 
 {% block content %}
+{% if messages %}
 
 
-    <main class="container-fluid vitae-container" >
+{% for message in messages %}
+
+<div class="alert alert-danger" role="alert">
+    <p style="text-align: center;">{{message}}</p>
+</div>
+
+
+
+{% endfor %}
+
+{% endif %}
+
+
+
+    <main class="container-fluid vitae-container contact_container"  >
+
         <div class="col-md-8 mt-2 mb-2 d-flex justify-content-center w-100" >
         <form class="contact_form ps-md-3 pe-md-5 0 " method="POST" style="width: 500px;" novalidate>
             {% csrf_token %}
@@ -34,8 +50,8 @@
             <!-- ADD FACEBOOK AND TWITTER LINK -->
             <p class="form-text">
                 You can message me direcly via 
-                <a href="" class="" title="follow this link to visit my Facebook account" target="_blank" rel="noopener noreferrer">Facebook</a> Or 
-                <a href="" class="" title="follow this link to visit my Twitter account" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://www.facebook.com/rajan.bhandari.520562/" class="" title="follow this link to visit my Facebook account" target="_blank" rel="noopener noreferrer">Facebook</a> Or 
+                <a href="https://twitter.com/RajanBh39882525" class="" title="follow this link to visit my Twitter account" target="_blank" rel="noopener noreferrer">Twitter</a>
 
             </p>
         </form>

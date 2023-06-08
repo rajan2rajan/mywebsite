@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponseRedirect
 from django.http import HttpResponse,FileResponse
-from .forms import AboutForm,ContactForm,VideoForm
+from .forms import AboutForm,VideoForm
 from .models import About,Videos
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -46,6 +46,21 @@ def contact(request):
             from_email = form_data['Email']        
             subject = form_data['Subject']
             message =form_data ['Message']
+            if not name:
+                messages.error(request,'please fill completely  ')
+                return redirect('contact')
+            if not from_email:
+                messages.error(request,'please fill completely  ')
+
+                return redirect('contact')
+            if not subject:
+                messages.error(request,'please fill completely  ')
+
+                return redirect('contact')
+            if not message:
+                messages.error(request,'please fill completely  ')
+
+                return redirect('contact')
             data = f'name= {name},  email={from_email} ,and message={message} '
             send_mail( subject, data, 'testingchitwan@gmail.com', ['rajanbhandari939@gmail.com'],fail_silently=False)
             messages.info(request,'message send sucessfull ')
@@ -92,6 +107,14 @@ def delete_video(request,pk):
 
 def cv(request):
     return render(request,'cv.html')
+
+
+def pagenotfound(request,exception):
+    return render(request,'notfound.html')
+
+
+# def siteundercons(request):
+#     return render(request,'siteundercons.html')
 
 
 from .pdf import html2pdf  

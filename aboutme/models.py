@@ -19,21 +19,3 @@ class Videos(models.Model):
 
 
 
-# class Details(models.Model):
-
-#     address = models.CharField(max_length=100)
-
-#     email = models.EmailField(max_length=100)
-
-#     career_objective = models.CharField(max_length=100)
-#     maritial_stauts = models.CharField(max_length=10)
-#     facebook = models.CharField(max_length=10)
-#     twitter = models.CharField(max_length=10)
-#     linkdin = models.CharField(max_length=10)
-#     education_bachlore = models.CharField(max_length=10)
-
-
-
-
-
-

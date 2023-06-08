@@ -12,9 +12,8 @@ urlpatterns = [
     path('deletevideo/<int:pk>',delete_video,name='delete_video'),
     path('cv/',cv,name='cv'),
     path('generatepdf/',generatepdf,name='generatepdf'),
-
-
-    path('pdf/',pdf,name='pdf')
+    path('pdf/',pdf,name='pdf'),
+    # path('siteundercons/',siteundercons,name='siteundercons'),
 
 
 
