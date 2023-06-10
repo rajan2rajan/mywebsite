@@ -13,8 +13,5 @@ urlpatterns = [
     path('cv/',cv,name='cv'),
     path('generatepdf/',generatepdf,name='generatepdf'),
     path('pdf/',pdf,name='pdf'),
-    # path('siteundercons/',siteundercons,name='siteundercons'),
-
-
 
 ]
