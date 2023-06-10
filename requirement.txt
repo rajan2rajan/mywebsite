@@ -39,5 +39,4 @@ uritools==4.0.1
 urllib3==1.26.15
 webencodings==0.5.1
 xhtml2pdf==0.2.10
-decouple==3.8
 
