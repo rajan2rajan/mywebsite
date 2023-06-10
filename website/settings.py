@@ -30,7 +30,7 @@ DEBUG = config('DEBUG',cast=bool)
 
 # your domain name 
 # ALLOWED_HOSTS = ['www.rajan2rajan.com','rajan2rajan.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://rajan2rajan.pythonanywhere.com/']
 
 
 # Application definition
