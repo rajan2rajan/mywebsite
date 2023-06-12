@@ -29,8 +29,9 @@ DEBUG = config('DEBUG',cast=bool)
 
 
 # your domain name 
-# ALLOWED_HOSTS = ['www.rajan2rajan.com','rajan2rajan.com']
-ALLOWED_HOSTS = ['rajan2rajan.pythonanywhere.com']
+# ALLOWED_HOSTS = ['rajan2rajan.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -151,3 +152,6 @@ MEDIA_URL = '/media/'
   
 # Path where media is stored  
 MEDIA_ROOT = os.path.join(BASE_DIR, 'aboutme/static/')  
+
+# from where image and static file will be get 
+STATIC_ROOT = (BASE_DIR /'.aboutme/static/')
