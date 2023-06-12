@@ -31,7 +31,7 @@ DEBUG = config('DEBUG',cast=bool)
 # your domain name 
 
 # ALLOWED_HOSTS = ['rajan2rajan.pythonanywhere.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -146,9 +146,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Base url to serve media files  
 MEDIA_URL = '/media/'  
-
-
-
   
 # Path where media is stored  
 MEDIA_ROOT = os.path.join(BASE_DIR, 'aboutme/static/')  
