@@ -151,4 +151,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'aboutme/static/')  
 
 # from where image and static file will be get 
-STATIC_ROOT = (BASE_DIR /'.aboutme/static/')
+STATIC_ROOT = (BASE_DIR /'./aboutme/static/')
