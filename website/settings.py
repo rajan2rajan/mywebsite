@@ -29,9 +29,9 @@ DEBUG = config('DEBUG',cast=bool)
 
 
 # your domain name 
+
 # ALLOWED_HOSTS = ['rajan2rajan.pythonanywhere.com']
 ALLOWED_HOSTS = ['*']
-
 
 
 # Application definition
